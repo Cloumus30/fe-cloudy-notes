@@ -28,7 +28,7 @@
 </script>
 
 <template>
-    <nav class="flex m-0 top-0 justify-between w-screen items-center h-14 text-slate-300 bg-slate-800">
+    <nav class="flex m-0 top-0 justify-between w-screen items-center h-14 text-font-navbar bg-navbar">
         <div class="font-bold text-2xl">
           <p>Cloudy Notes</p>
         </div>

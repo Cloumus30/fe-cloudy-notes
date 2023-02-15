@@ -1,8 +1,15 @@
-<script setup lang="ts">
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import { initDropdowns } from 'flowbite'
-import { onMounted } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+
+export default defineComponent({
+  components:{
+    Navbar,
+    RouterView,
+  },
+})
 
 onMounted(()=>{
   initDropdowns();
@@ -10,11 +17,6 @@ onMounted(()=>{
 </script>
 
 <template>
-  <header>
-      <Navbar />
-
-  </header>
-
   <RouterView />
 </template>
 

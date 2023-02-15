@@ -1,4 +1,20 @@
+<script lang="ts">
+import Navbar from '@/components/Navbar.vue';
+import { defineComponent } from 'vue';
+
+
+export default defineComponent({
+    mounted() {
+        document.title = "About Page";
+    },
+    components: { Navbar }
+})
+</script>
+
 <template>
+  <header>
+      <Navbar />
+  </header>
   <div class="about">
     <h1>This is an about page</h1>
   </div>

@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,6 +7,11 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
+    screens: {
+      '2xs': '360px',
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     extend: {
       colors:{
         'navbar': '#1E293B',

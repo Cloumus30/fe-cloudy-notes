@@ -33,11 +33,11 @@
           <p>Cloudy Notes</p>
         </div>
         <div class="flex mr-8">
-          <div class="group">
+          <div>
             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="mx-3 hover:text-white">
               <IconBell/>
             </button>
-            <ul id="dropdown" class=" hidden absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 w-1/3" aria-labelledby="dropdownDefaultButton">
+            <ul id="dropdown" class=" hidden absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 md:w-1/3 2xs:w-full " aria-labelledby="dropdownDefaultButton">
               <li class="py-4 pr-4 pl-2 flex hover:text-white hover:cursor-pointer"> 
                  <NotifCard :body-notif="bodyNotif"/>
               </li>
@@ -50,10 +50,10 @@
 
           <!-- Dropdown Profile -->
           <div class="group">
-            <button class=" mx-3 border hover:text-white border-white rounded-full">
+            <button id="dropdownUserButton" data-dropdown-toggle="dropdownUser" class="mx-3 hover:text-white">
               <IconUser />
             </button>
-            <ul class="absolute hidden pt-2 bg-slate-800 text-slate-300 right-2 group-hover:block hover:block">
+            <ul id="dropdownUser" class=" hidden absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 w-40 md:w-40 2xs:w-1/2" aria-labelledby="dropdownUserButton">
               <li class="py-4 pr-4 pl-2 flex hover:text-white hover:cursor-pointer"> 
                 <IconLogin class="mx-2" /> Login
               </li>

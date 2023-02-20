@@ -12,9 +12,6 @@ export default defineComponent({
 </script>
 
 <template>
-  <header>
-      <Navbar />
-  </header>
   <div class="about">
     <h1>This is an about page</h1>
   </div>

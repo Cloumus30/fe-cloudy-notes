@@ -19,10 +19,7 @@
     },
     
     methods:{
-      notifClick(value:boolean){
-        this.isNotifClicked = value;
-        console.log(this.isNotifClicked);
-      }
+      
     }
   })  
 </script>

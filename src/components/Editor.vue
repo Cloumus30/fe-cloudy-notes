@@ -3,7 +3,7 @@ import { Delta, QuillEditor } from '@vueup/vue-quill';
 import { defineComponent } from 'vue';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
-import ImageUploader from 'quill-image-uploader';
+// import ImageUploader from 'quill-image-uploader';
 import BlotFormatter from 'quill-blot-formatter';
 
 export default defineComponent({
@@ -19,26 +19,26 @@ export default defineComponent({
 
     setup: ()=>{
         const modules = [
-            {
-                name: 'imageUploader',
-                module: ImageUploader,
-                options:{
-                    upload: (file:any) => {
-                        return new Promise((resolve, reject) => {
-                            const formData = new FormData();
-                            formData.append("image", file);
+            // {
+            //     name: 'imageUploader',
+            //     module: ImageUploader,
+            //     options:{
+            //         upload: (file:any) => {
+            //             return new Promise((resolve, reject) => {
+            //                 const formData = new FormData();
+            //                 formData.append("image", file);
 
-                            console.log(formData);
+            //                 console.log(formData);
 
-                            setTimeout(() => {
-                                resolve(
-                                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
-                                );
-                            }, 3500);
-                        })
-                    }
-                }, 
-            },
+            //                 setTimeout(() => {
+            //                     resolve(
+            //                     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
+            //                     );
+            //                 }, 3500);
+            //             })
+            //         }
+            //     }, 
+            // },
             {
                 name: 'blotFormatter',
                 module: BlotFormatter,

@@ -14,12 +14,28 @@
     data(){
       return {
         bodyNotif:"Notif Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sit quis soluta ipsam est earum voluptates hic provident numquam excepturi.",
-        isNotifClicked: false
+        isNotifClicked: false,
+        isHiddenProf:true,
+        isHiddenNotif: true,
       }
     },
     
     methods:{
-      
+      handleClick(type:string){
+        if(type === 'profile'){
+          this.isHiddenProf = !this.isHiddenProf;
+          if(!this.isHiddenNotif && !this.isHiddenProf){
+            this.isHiddenNotif = true;
+          }
+        }
+        if(type === 'notif'){
+          this.isHiddenNotif = !this.isHiddenNotif;
+          if(!this.isHiddenNotif && !this.isHiddenProf){
+            this.isHiddenProf = true;
+          }
+        }
+        
+      } 
     }
   })  
 </script>
@@ -31,10 +47,10 @@
         </div>
         <div class="flex mr-8">
           <div>
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="mx-3 hover:text-white">
+            <button id="dropdownDefaultButton" @click="handleClick('notif')" data-dropdown-toggle="dropdown" class="mx-3 hover:text-white">
               <IconBell/>
             </button>
-            <ul id="dropdown" class=" hidden absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 md:w-1/3 2xs:w-full " aria-labelledby="dropdownDefaultButton">
+            <ul id="dropdown" v-bind:class="{hidden:isHiddenNotif}" class=" absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 md:w-1/3 2xs:w-full " aria-labelledby="dropdownDefaultButton">
               <li class="py-4 pr-4 pl-2 flex hover:text-white hover:cursor-pointer"> 
                  <NotifCard :body-notif="bodyNotif"/>
               </li>
@@ -47,15 +63,19 @@
 
           <!-- Dropdown Profile -->
           <div class="group">
-            <button id="dropdownUserButton" data-dropdown-toggle="dropdownUser" class="mx-3 hover:text-white">
+            <button id="dropdownUserButton" @click="handleClick('profile')" data-dropdown-toggle="dropdownUser" class="mx-3 hover:text-white">
               <IconUser />
             </button>
-            <ul id="dropdownUser" class=" hidden absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 w-40 md:w-40 2xs:w-1/2" aria-labelledby="dropdownUserButton">
-              <li class="py-4 pr-4 pl-2 flex hover:text-white hover:cursor-pointer"> 
-                <IconLogin class="mx-2" /> Login
+            <ul id="dropdownUser" v-bind:class="{hidden:isHiddenProf}" class=" absolute mt-4 bg-slate-800 drop-shadow rounded-md text-slate-300 right-10 w-40 md:w-40 2xs:w-1/2" aria-labelledby="dropdownUserButton">
+              <li class=" hover:text-white hover:cursor-pointer"> 
+                <RouterLink class="py-4 pr-4 pl-2 flex" to="/login">
+                  <IconLogin class="mx-2" /> Login
+                </RouterLink>
               </li>
-              <li class="py-4 pr-4 pl-2 flex hover:text-white hover:cursor-pointer"> 
-                <IconDoc class="mx-2" /> Register
+              <li class=" hover:text-white hover:cursor-pointer"> 
+                <RouterLink class="py-4 pr-4 pl-2 flex" to="/register">
+                  <IconDoc class="mx-2" /> Register
+                </RouterLink>
               </li>
             </ul>
           </div>

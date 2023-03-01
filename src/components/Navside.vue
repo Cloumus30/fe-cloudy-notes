@@ -17,12 +17,14 @@ export default defineComponent({
         <ul class="m-6">
             <li class="mb-6">
                 <!-- <a  href=""> <IconHome class="mr-7 text-sm" /> Dashboard</a> -->
-                <RouterLink class="hover:text-white flex flex-row" to="/login">  
+                <RouterLink class="hover:text-white flex flex-row" to="/">  
                     <IconHome class="mr-7 text-sm" /> Dashboard
                 </RouterLink>
             </li>
             <li class="mb-6">
-                <a class="hover:text-white flex flex-row" href=""> <IconDoc class="mr-7 text-sm" /> List Notes</a>
+                <RouterLink class="hover:text-white flex flex-row" to="/note">  
+                     <IconDoc class="mr-7 text-sm" /> Add Notes
+                </RouterLink>
             </li>
         </ul>
     </nav>

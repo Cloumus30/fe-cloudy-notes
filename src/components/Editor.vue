@@ -5,7 +5,6 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
 import ImageUploader from 'quill-image-uploader';
 import BlotFormatter from 'quill-blot-formatter';
-import HtmlDiffer from 'html-differ';
 
 export default defineComponent({
     components:{
@@ -60,7 +59,7 @@ export default defineComponent({
         },
         getImageSrcs(){
             const image = this.quillDat.match(/<img([\w\W]+?)>/g);
-            let srcs = [];
+            let srcs:any[] = [];
             image?.forEach((el)=>{
                 const src =  el.match(/<img.*?src=['"](.*?)['"]/);
                 if(src){

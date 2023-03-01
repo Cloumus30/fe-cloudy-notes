@@ -25,15 +25,23 @@ export default defineConfig(({ command, mode }) => {
   // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    // vite config
+      server:{
+        port: parseInt(env.APP_PORT),
+        // proxy:{
+        //   "/api/":{
+        //     target: 'http://203.175.11.186',
+        //     rewrite: (path) => path.replace(/^\/api/, ""),
+        //     changeOrigin: true,
+        //     secure: false
+        //   }
+        // }
+      },
+      // vite config
       plugins: [vue()],
       resolve: {
         alias: {
           '@': fileURLToPath(new URL('./src', import.meta.url))
         }
       },
-      server:{
-        port: parseInt(env.APP_PORT)
-      }
   }
 })
